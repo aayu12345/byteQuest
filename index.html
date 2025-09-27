@@ -13,7 +13,7 @@
       email: e.target.email.value,
       message: e.target.message.value
     };
-    await fetch("https://creed-avenctus.app.n8n.cloud/webhook/lead-webhook", {
+    await fetch("https://creed-avenctus.app.n8n.cloud/webhook-test/lead-webhook", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -21,3 +21,4 @@
     alert("Lead submitted successfully!");
   });
 </script>
+
