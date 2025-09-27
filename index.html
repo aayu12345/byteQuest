@@ -1,0 +1,23 @@
+<form id="leadForm">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById("leadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value
+    };
+    await fetch("https://creed-avenctus.app.n8n.cloud/webhook/lead-webhook", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    alert("Lead submitted successfully!");
+  });
+</script>
